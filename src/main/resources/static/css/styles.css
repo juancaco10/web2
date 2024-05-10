@@ -1,0 +1,394 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #111;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 10px auto;
+    background-color: #222;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.contenedor {
+    max-width: 1200px;
+    margin: 10px auto;
+    background-color: #111; /* Cambiado a color oscuro */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: #fff; /* Cambiado a color blanco */
+}
+
+.contenedor h2 {
+    text-align: center;
+    margin-top: 0;
+    color: #007bff;
+}
+
+.contenedor table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.contenedor th{
+    padding: 8px;
+    border: 1px solid rgb(0, 0, 0);
+    color: #fff;
+}
+.contenedor td {
+    padding: 8px;
+    border: 1px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0); 
+}
+
+.contenedor th {
+    background-color: #333;
+}
+
+.contenedor td {
+    background-color: rgb(255, 255, 255);
+}
+
+.contenedor img {
+    width: 100px;
+    height: auto;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo negro con opacidad */
+}
+
+.modal-content {
+    background-color: #111; /* Fondo negro */
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.cerrar {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h3 {
+    text-align: center;
+    color: #007bff;
+    margin-top: 0;
+}
+
+form {
+    color: #fff; /* Color de letra blanco */
+}
+
+label {
+    color: #007bff;
+}
+
+input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff; /* Color de letra blanco */
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+
+h2 {
+    text-align: center;
+    color: #007bff;
+    margin-top: 0;
+}
+
+.navbar {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+.navbar__menu {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+}
+
+.navbar__item {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.navbar__item.active .navbar__link {
+    color: #007bff;
+}
+
+.navbar__link {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.navbar__link:hover {
+    color: #007bff;
+}
+
+.navbar__search-form {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.navbar__search-input {
+    padding: 8px;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    margin: 0;
+}
+
+.navbar__search-button {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.navbar__search-button:hover {
+    background-color: #0056b3;
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 80px;
+    margin-top: 20px;
+    margin: 30px;
+}
+
+.vehiculo {
+    background-color: #222;
+    border: 3px solid #007bff;
+    border-radius: 8px;
+    padding: 5px; /* Reducir el padding a 5px */
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.vehiculo img {
+    width: 80%;
+    height: auto; 
+    max-width: 250px;
+}
+
+.vehiculo:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.5);
+}
+
+
+.vehiculo figcaption {
+    margin-top: 10px;
+}
+.vehiculo-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.vehiculo-form h2 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.vehiculo-form label {
+    display: block;
+    color: #007bff;
+    margin-bottom: 5px;
+}
+
+.vehiculo-form input[type="text"],
+.vehiculo-form input[type="file"],
+.vehiculo-form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+}
+
+.vehiculo-form input[type="submit"] {
+    width: 100%;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.vehiculo-form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.containeer {
+    max-width: 1200px;
+    margin: 10px auto;
+    background-color: #111; 
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: #fff; 
+}
+
+.containeer h2 {
+    text-align: center;
+    margin-top: 0;
+    color: #007bff;
+}
+
+.containeer table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.containeer th{
+    padding: 8px;
+    border: 1px solid rgb(0, 0, 0);
+    color: #fff; 
+}
+.containeer td {
+    padding: 8px;
+    border: 1px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0); 
+}
+
+.containeer th {
+    background-color: #333;
+}
+
+.containeer td {
+    background-color: rgb(255, 255, 255);
+}
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.submenu__link {
+    padding: 12px 16px;
+    display: block;
+    color: black;
+    text-decoration: none;
+}
+
+.submenu__link:hover {
+    background-color: #ddd;
+}
+
+.vehiculo-detalles {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+}
+
+.vehiculo-imagen {
+    margin-right: 20px;
+}
+
+.vehiculo-imagen img {
+    max-width: 500px; 
+    height: auto;
+}
+
+.vehiculo-info {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.btn-regresar {
+    display: block;
+    margin-top: 20px; 
+}
+.galeria2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .vehiculo-detalles2 {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .vehiculo-imagen2 {
+            margin-right: 20px;
+        }
+
+        .vehiculo-imagen2 img {
+            max-width: 500px; 
+            height: auto;
+        }
+
+        .vehiculo-info2 {
+            flex-grow: 1;
+            text-align: left; 
+        }
+        
+        
+        

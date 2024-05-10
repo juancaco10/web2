@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado de Búsqueda</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+
+<body>
+	
+	<nav class="navbar">
+	    <div class="container">
+	        <ul class="navbar__menu">
+	            <li class="navbar__item active"><a href="/vehiculos/inicio" class="navbar__link">Inicio</a></li>
+	            <li class="navbar__item">
+	                <a href="#" class="navbar__link">Sección Vehículos</a>
+	                <div class="submenu">
+	                    <a href="/vehiculos/insertar" class="submenu__link">Insertar Vehículo</a>
+	                    <a href="/vehiculos/listar" class="submenu__link">Listar Vehículos</a>
+	                </div>
+	            </li>
+	            <li class="navbar__item">
+	                <a href="#" class="navbar__link">Sección Categorías</a>
+	                <div class="submenu">
+	                    <a href="/categorias/insertar" class="submenu__link">Insertar Categoría</a>
+	                    <a href="/categorias/listar" class="submenu__link">Listar Categorías</a>
+	                </div>
+	            </li>
+	        </ul>
+			
+	    </div>
+	</nav>
+    <div class="contenido">
+        <h2>Resultado de Búsqueda</h2>
+        
+        <div class="galeria2">
+            <div th:each="vehiculo : ${vehiculos}" class="vehiculo-detalles2">
+                <div class="vehiculo-imagen2">
+                    <img th:src="@{/vehiculos/imagen/{imagen}(imagen=${vehiculo.imagen})}" alt="Imagen del vehículo">
+                </div>
+				<div class="vehiculo-info2">
+				            <p><strong>Marca:</strong> <span th:text="${vehiculo.marca}"></span></p>
+				            <p><strong>Modelo:</strong> <span th:text="${vehiculo.modelo}"></span></p>
+				            <p><strong>Año:</strong> <span th:text="${vehiculo.ano}"></span></p>
+				            <p><strong>Color:</strong> <span th:text="${vehiculo.color}"></span></p>
+				            <p><strong>Matrícula:</strong> <span th:text="${vehiculo.matricula}"></span></p>
+				            <p><strong>Categoría:</strong> <span th:text="${vehiculo.idCategoria.nombre}"></span></p>
+				        </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<script src="/js/scripts.js"></script>
+	
+	
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Categorías</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+
+<body>
+	
+	<nav class="navbar">
+	    <div class="container">
+	        <ul class="navbar__menu">
+	            <li class="navbar__item active"><a href="/vehiculos/inicio" class="navbar__link">Inicio</a></li>
+	            <li class="navbar__item">
+	                <a href="#" class="navbar__link">Sección Vehículos</a>
+	                <div class="submenu">
+	                    <a href="/vehiculos/insertar" class="submenu__link">Insertar Vehículo</a>
+	                    <a href="/vehiculos/listar" class="submenu__link">Listar Vehículos</a>
+	                </div>
+	            </li>
+	            <li class="navbar__item">
+	                <a href="#" class="navbar__link">Sección Categorías</a>
+	                <div class="submenu">
+	                    <a href="/categorias/insertar" class="submenu__link">Insertar Categoría</a>
+	                    <a href="/categorias/listar" class="submenu__link">Listar Categorías</a>
+	                </div>
+	            </li>
+	        </ul>
+	           	        </div>
+	    </nav>
+    <div class="containeer">
+        <h2>Listar Categorías</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                 
+                    <th>Categorias - Vehiculos -</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="categoria : ${categorias}">
+                   
+                    <td th:text="${categoria.nombre}"></td>
+					<td>
+					    <a th:href="@{/categorias/editar/{id}(id=${categoria.idCategoria})}" class="btn btn-primary btn-sm">Editar</a>
+					    <form th:action="@{/categorias/eliminar}" method="post" style="display: inline;">
+					        <input type="hidden" name="id" th:value="${categoria.idCategoria}">
+					        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas eliminar esta categoría?')">Eliminar</button>
+					    </form>
+					</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	
+	<script src="/js/scripts.js"></script>
+</body>
+
+</html>

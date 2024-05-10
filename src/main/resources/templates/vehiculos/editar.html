@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Editar Vehículo</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+
+<body>
+
+	<nav class="navbar">
+		<div class="container">
+			<ul class="navbar__menu">
+				<li class="navbar__item active"><a href="/vehiculos/inicio" class="navbar__link">Inicio</a></li>
+				<li class="navbar__item">
+					<a href="#" class="navbar__link">Sección Vehículos</a>
+					<div class="submenu">
+						<a href="/vehiculos/insertar" class="submenu__link">Insertar Vehículo</a>
+						<a href="/vehiculos/listar" class="submenu__link">Listar Vehículos</a>
+					</div>
+				</li>
+				<li class="navbar__item">
+					<a href="#" class="navbar__link">Sección Categorías</a>
+					<div class="submenu">
+						<a href="/categorias/insertar" class="submenu__link">Insertar Categoría</a>
+						<a href="/categorias/listar" class="submenu__link">Listar Categorías</a>
+					</div>
+				</li>
+			</ul>
+
+		</div>
+	</nav>
+
+
+	<div class="container mt-5">
+		<h2>Editar Vehículo</h2>
+
+		<form id="formEditarVehiculoModal" th:action="@{'/vehiculos/editar/' + ${idVehiculo}}" method="post"
+			enctype="multipart/form-data">
+			<input type="hidden" id="idVehiculo" name="idVehiculo">
+			<input type="hidden" id="idCategoria" name="idCategoria">
+			<input type="hidden" id="imagenActual" name="imagenActual">
+			<label for="marca">Marca:</label>
+			<input type="text" id="marca" name="marca" th:value="${vehiculoDTO.marca}"><br><br>
+			<label for="modelo">Modelo:</label>
+			<input type="text" id="modelo" name="modelo" th:value="${vehiculoDTO.modelo}"><br><br>
+			<label for="ano">Año:</label>
+			<input type="text" id="ano" name="ano" th:value="${vehiculoDTO.ano}"><br><br>
+			<label for="color">Color:</label>
+			<input type="text" id="color" name="color" th:value="${vehiculoDTO.color}"><br><br>
+			<label for="matricula">Matrícula:</label>
+			<input type="text" id="matricula" name="matricula" th:value="${vehiculoDTO.matricula}"><br><br>
+			<label for="imagenActual">Imagen actual:</label><br>
+			<img th:if="${vehiculoDTO.imagen != null}"
+				th:src="@{/vehiculos/imagen/{imagen}(imagen=${vehiculoDTO.imagen})}"
+				style="width: 100px; height: auto;"><br><br>
+			<label for="imagen">Seleccionar nueva imagen:</label>
+			<input type="file" id="imagen" name="imagen"><br><br>
+			<label for="infoAnterior">Información anterior:</label><br>
+			<span th:text="${infoAnterior}"></span><br><br>
+			<button type="submit" class="btn btn-primary">Guardar</button>
+		</form>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<script src="/js/scripts.js"></script>
+</body>
+
+</html>

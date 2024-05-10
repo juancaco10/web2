@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Vehículos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+
+<body>
+	
+	<nav class="navbar">
+	    <div class="container">
+	        <ul class="navbar__menu">
+	            <li class="navbar__item active"><a href="/vehiculos/inicio" class="navbar__link">Inicio</a></li>
+	            <li class="navbar__item">
+	                <a href="#" class="navbar__link">Sección Vehículos</a>
+	                <div class="submenu">
+	                    <a href="/vehiculos/insertar" class="submenu__link">Insertar Vehículo</a>
+	                    <a href="/vehiculos/listar" class="submenu__link">Listar Vehículos</a>
+	                </div>
+	            </li>
+	            <li class="navbar__item">
+	                <a href="#" class="navbar__link">Sección Categorías</a>
+	                <div class="submenu">
+	                    <a href="/categorias/insertar" class="submenu__link">Insertar Categoría</a>
+	                    <a href="/categorias/listar" class="submenu__link">Listar Categorías</a>
+	                </div>
+	            </li>
+	        </ul>
+        </div>
+    </nav>
+
+    <div class="contenedor">
+        <h2>Listado de Vehículos</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                   
+                    <th scope="col">Marca</th>
+                    <th scope="col">Modelo</th>
+                    <th scope="col">Año</th>
+                    <th scope="col">Color</th>
+                    <th scope="col">Matrícula</th>
+                    <th scope="col">Categoría</th> 
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Acciones</th> 
+                </tr>
+            </thead>
+			<tbody>
+			    <tr th:each="vehiculo : ${vehiculos}">
+			       
+			        <td th:text="${vehiculo.marca}"></td>
+			        <td th:text="${vehiculo.modelo}"></td>
+			        <td th:text="${vehiculo.ano}"></td>
+			        <td th:text="${vehiculo.color}"></td>
+			        <td th:text="${vehiculo.matricula}"></td>
+			        <td th:text="${vehiculo.idCategoria.nombre}"></td>
+			        <td><img th:src="@{/vehiculos/imagen/{imagen}(imagen=${vehiculo.imagen})}"
+			                alt="Imagen del vehículo" style="width: 100px; height: auto;"></td>
+			        <td>
+						<a th:href="@{'/vehiculos/editar/' + ${vehiculo.idVehiculo}}" class="btn btn-primary btn-sm editar">Editar</a>
+						  
+
+						<form id="deleteForm" th:action="@{/vehiculos/eliminar/{id}(id=${vehiculo.idVehiculo})}" method="post" style="display: inline;">
+			                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas eliminar este vehículo?')">Eliminar</button>
+			            </form>
+			        </td>
+			    </tr>
+			</tbody>
+        </table>
+    </div>
+
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="/js/scripts.js"></script>
+
+</body>
+
+</html>
